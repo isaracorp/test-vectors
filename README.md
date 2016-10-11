@@ -3,7 +3,7 @@
 Additional test vectors used to validate the Toolkit.
 
 Many of the algorithms or combinations of algorithms supported by
-[https://www.isara.com/?page_id=12](ISARA's Toolkit) don't have published
+[ISARA's Toolkit](https://www.isara.com/?page_id=12) don't have published
 test vectors. For example, the KDFs don't have SHA3 test vectors available.
 
 We've generated test vectors using alternative implementations to help
@@ -15,7 +15,7 @@ between implementations.
 
 These vectors are for SHA-256, SHA-512, combined with the Randomized Hashing
 algorithm described in
-[https://www.iacr.org/archive/crypto2006/41170039/41170039.pdf](Strengthening Digital Signatures via Randomized Hashing)
+[Strengthening Digital Signatures via Randomized Hashing](https://www.iacr.org/archive/crypto2006/41170039/41170039.pdf)
 by Shai Halevi and Hugo Krawczyk.
 
 The algorithm described in this paper is defined for Merkle-Damgard hashes,
@@ -144,15 +144,15 @@ NIST's test cases for HMAC-DRBG include SHA-256 results, but nothing for
 SHA-512, SHA3-256, and SHA3-512.
 
 The following test data was generated using the same algorithm as the vectors
-found in the [https://github.com/coruus/nist-testvectors](NIST textvectors)
+found in the [NIST textvectors](https://github.com/coruus/nist-testvectors)
 repo (specifically
-[https://github.com/coruus/nist-testvectors/tree/master/csrc.nist.gov/groups/STM/cavp/documents/drbg/drbgtestvectors/drbgvectors_pr_false](these)):
+[these](https://github.com/coruus/nist-testvectors/tree/master/csrc.nist.gov/groups/STM/cavp/documents/drbg/drbgtestvectors/drbgvectors_pr_false)):
 
 1. Seed with the given seed data.
 2. Reseed with the given reseed data.
-3. Generate the expected number of bytes.
+3. Generate the expected number of bytes. Discard this data.
 4. Generate the expected number of bytes again, and compare this data against
-   the "expected" data.
+   the expected data.
 
 SHA-256: Use the data from the NIST document, `HMAC_DRBG.txt` in the repo.
 
