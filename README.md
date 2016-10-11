@@ -144,7 +144,7 @@ NIST's test cases for HMAC-DRBG include SHA-256 results, but nothing for
 SHA-512, SHA3-256, and SHA3-512.
 
 The following test data was generated using the same algorithm as the vectors
-found in the [NIST textvectors](https://github.com/coruus/nist-testvectors)
+found in the [NIST test vectors](https://github.com/coruus/nist-testvectors)
 repo (specifically
 [these](https://github.com/coruus/nist-testvectors/tree/master/csrc.nist.gov/groups/STM/cavp/documents/drbg/drbgtestvectors/drbgvectors_pr_false)):
 
