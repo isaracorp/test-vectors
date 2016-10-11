@@ -1113,3 +1113,277 @@ other: 21
 expected: c83189beb236e01f0333694867173987469ef92a64bf9c8636ef0626291ed76a
           ec981eece633e64d476bf6f9562d676b63837b95af9d905bbe6697b35d66e557
 ```
+
+# PBKDF2
+
+RFC-6070 defines SHA-256 test vectors for PBKDF2. Here are the results for
+vectors when using SHA-512, SHA3-256, and SHA3-512.
+
+SHA-512:
+
+```
+password: 70617373776f7264
+salt: 73616c74
+iterations: 1
+expected: 867f70cf1ade02cff3752599a3a53dc4af34c7a6
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 2
+expected: e1d9c16aa681708a45f5c7c4e215ceb66e011a2e
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 4096
+expected: d197b1b33db0143e018b12f3d1d1479e6cdebdcc
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 16777216
+expected: 6180a3ceabab45cc3964112c811e0131bca93a35
+
+password: 70617373776f726450415353574f524470617373776f7264
+salt: 73616c7453414c5473616c7453414c5473616c7453414c5473616c7453414c5473616c74
+iterations: 4096
+expected: 8c0511f4c6e597c6ac6315d8f0362e225f3c501495ba23b868
+
+password: 7061737300776f7264
+salt: 7361006c74
+iterations: 4096
+expected: 9d9e9c4cd21fe4be24d5b8244c759665f39d98fc
+```
+
+SHA3-256:
+
+```
+password: 70617373776f7264
+salt: 73616c74
+iterations: 1
+expected: 94613f3ee2ea730e0b06754f3fc816d4f87c9be9
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 2
+expected: 4c915baedd1773383e77fcfe38114ca7514010ad
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 4096
+expected: 778b6e237a0f49621549ff70d218d2080756b9fb
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 16777216
+expected: e8f3e2cda7296d1df7adcf2d2bf579487431a045
+
+password: 70617373776f726450415353574f524470617373776f7264
+salt: 73616c7453414c5473616c7453414c5473616c7453414c5473616c7453414c5473616c74
+iterations: 4096
+expected: 7aef8f1ad8c7f12205334f624d4af9e2863121618f7a0b3209
+
+password: 7061737300776f7264
+salt: 7361006c74
+iterations: 4096
+expected: 98e5503130ffdd69603da78cbb12e9becb948efa
+```
+
+SHA3-512:
+
+```
+password: 70617373776f7264
+salt: 73616c74
+iterations: 1
+expected: f7a2684630ec0f81f23abbf606278deeaad1a350
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 2
+expected: d6824ab17801706ad465f3196eb80dde20378696
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 4096
+expected: 2bfaf2d5ceb6d10f5e262cd902488cfd4489614e
+
+password: 70617373776f7264
+salt: 73616c74
+iterations: 16777216
+expected: 526b2f24dc0cdc77d07ffeca4e077dd80f9fb424
+
+password: 70617373776f726450415353574f524470617373776f7264
+salt: 73616c7453414c5473616c7453414c5473616c7453414c5473616c7453414c5473616c74
+iterations: 4096
+expected: d60791a4ed27195d813f35510351b9d1ff9ad4262153944609
+
+password: 7061737300776f7264
+salt: 7361006c74
+iterations: 4096
+expected: c0da8018507821037c76801cccf3cc8a2b00acb7
+```
+
+# RFC-5869 KDF
+
+RFC-5869 includes test vectors for SHA-256. Here are the results for
+vectors when using SHA-512, SHA3-256, and SHA3-512.
+
+SHA-512:
+
+```
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: 000102030405060708090a0b0c
+info: f0f1f2f3f4f5f6f7f8f9
+size: 42
+expected: 832390086cda71fb47625bb5ceb168e4c8e26a1a16ed34d9fc
+          7fe92c1481579338da362cb8d9f925d7cb
+
+ikm: 000102030405060708090a0b0c0d0e0f101112131415161718
+     191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f3031
+     32333435363738393a3b3c3d3e3f404142434445464748494a
+     4b4c4d4e4f
+salt: 606162636465666768696a6b6c6d6e6f707172737475767778
+      797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f9091
+      92939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aa
+      abacadaeaf
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 82
+expected: ce6c97192805b346e6161e821ed165673b84f400a2b514b2fe
+          23d84cd189ddf1b695b48cbd1c8388441137b3ce28f16aa64b
+          a33ba466b24df6cfcb021ecff235f6a2056ce3af1de44d5720
+          97a8505d9e7a93
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: (none)
+info: (none)
+size: 42
+expected: f5fa02b18298a72a8c23898a8703472c6eb179dc204c03425c
+          970e3b164bf90fff22d04836d0e2343bac
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acab
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 52
+expected: b0a37f79602d18c54c2b84d9954fd306577f04684e4d2c198a
+          15c97302d40fb1cc7e068fa7dab13a501ea36f76b2e3497a5c
+          3dfc
+```
+
+SHA3-256:
+
+```
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: 000102030405060708090a0b0c
+info: f0f1f2f3f4f5f6f7f8f9
+size: 42
+expected: 0c5160501d65021deaf2c14f5abce04c5bd2635abceeba61c2
+          edb6e8ed72674900557728f2c9f2c4c179
+
+ikm: 000102030405060708090a0b0c0d0e0f101112131415161718
+     191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f3031
+     32333435363738393a3b3c3d3e3f404142434445464748494a
+     4b4c4d4e4f
+salt: 606162636465666768696a6b6c6d6e6f707172737475767778
+      797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f9091
+      92939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aa
+      abacadaeaf
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 82
+expected: 3dc251e66c75da6560405ec5ac10e17d851eedfbfdc13feafb
+          ec16964c25d021bd971465a3e9c615f27769019e3f0407d849
+          86fb0ba24e729c99834624baa21cb623dc0098f430d52e18bb
+          df694df4edd8b2
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: (none)
+info: (none)
+size: 42
+expected: bc1342cdd75c05e8b0c3ae609ce4410684d197232875073499
+          b30cdfe2de2853c1c1bed63d725e885e78
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acab
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 52
+expected: 329f3201a8f1b4fdbad3dc902652f6572d9393bc6d44bb406d
+          66916326cf1e003298e6fa87afa814784fe9122a45909ca21c
+          eaed
+```
+
+SHA3-512:
+
+```
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: 000102030405060708090a0b0c
+info: f0f1f2f3f4f5f6f7f8f9
+size: 42
+expected: 40e9f17e9bf2ef99425c2b23ccdf20a018ea5513f9ae68e1ea
+          8c626deb57dfa4d56c27ccf2a2a24488a5
+
+ikm: 000102030405060708090a0b0c0d0e0f101112131415161718
+     191a1b1c1d1e1f202122232425262728292a2b2c2d2e2f3031
+     32333435363738393a3b3c3d3e3f404142434445464748494a
+     4b4c4d4e4f
+salt: 606162636465666768696a6b6c6d6e6f707172737475767778
+      797a7b7c7d7e7f808182838485868788898a8b8c8d8e8f9091
+      92939495969798999a9b9c9d9e9fa0a1a2a3a4a5a6a7a8a9aa
+      abacadaeaf
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 82
+expected: 3adf31011245f82cc6b5c3b2ea31fe2a9b855b425c3ecdd8da
+          4a3fc5d0c3563f63bbdedf7ca912d2e98cbc853d978066ab17
+          7f19a7349e3982549b82a307e2113891691f2536ce45eb5ddf
+          9b5175859ce8d5
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: (none)
+info: (none)
+size: 42
+expected: 38bd71e45b397b775b563365a33258a6fd83abc1e86acf042f
+          0723c2b68ebf073a75c34c69328835ee4c
+
+ikm: 0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b0b
+salt: abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acabacabacabacabacabacabacabacabacabacabacabacabac
+      abacabacabacabacabacabacabacabacabacabacabacabacab
+      acab
+info: b0b1b2b3b4b5b6b7b8b9babbbcbdbebfc0c1c2c3c4c5c6c7c8
+      c9cacbcccdcecfd0d1d2d3d4d5d6d7d8d9dadbdcdddedfe0e1
+      e2e3e4e5e6e7e8e9eaebecedeeeff0f1f2f3f4f5f6f7f8f9fa
+      fbfcfdfeff
+size: 52
+expected: b2bb61483b529c991d8217fdacb1418c77ebab8837151eb0c0
+          beacd87567a0a239e90cfbfe457e0b42e2f2d4c658c9d9ae32
+          d54b
+```
